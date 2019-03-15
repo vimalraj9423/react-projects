@@ -1,0 +1,54 @@
+@import "src/style/variables";
+$duration: .5s;
+
+
+.navicon-button {
+    display: inline-block;
+    position: relative;
+    padding: 1.5rem 1.5rem;
+    transition: $duration/2;
+    cursor: pointer;
+    user-select: none;
+    opacity: .8;
+  
+    .navicon:before, .navicon:after {
+      transition: $duration/2;
+    }
+  
+    &:hover {
+      transition: $duration;
+      opacity: 1;
+  
+      .navicon:before, .navicon:after {
+        transition: $duration/2;
+      }
+  
+      .navicon:before { top: .825rem; }
+      .navicon:after { top: -.825rem; }
+    }
+  }
+  
+  .navicon {
+    position: relative;
+    width: 2.5em;
+    height: .3125rem;
+    background: $white;
+    transition: $duration;
+    border-radius: 2.5rem;
+  
+    &:before, &:after {
+      display: block;
+      content: "";
+      height: .3125rem;
+      width: 2.5rem;
+      background: $white;
+      position: absolute;
+      z-index: -1;
+      transition: $duration $duration/2;
+      border-radius: 1rem;
+    }
+  
+    &:before { top: .625rem; }
+    &:after { top: -.625rem; }
+  }
+  

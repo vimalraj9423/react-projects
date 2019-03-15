@@ -1,0 +1,60 @@
+
+
+@mixin media-breakpoint-up1( $size:"lg") {
+    // code here
+    @if($size=="tn"){
+        @media (min-width: 0px) {
+            @content;     
+         }
+    }
+    @if($size=="sm"){
+        @media (min-width: 576px) {
+            @content;     
+         }
+    }
+    @if($size=="lg"){
+        @media (min-width: 768px) { 
+            @content;
+         }
+    }
+    @if($size=="md"){
+        @media (min-width: 992px) { 
+            @content;
+         }
+     }
+    @if($size=="elg"){
+        @media (min-width: 1200px) { 
+            @content;
+        }  
+    }
+    
+}
+$sizeString:"elg" "lg" "md" "sm" "tn"; 
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    [class*="col-"]{
+        box-sizing: border-box;
+        width:100%;
+    }
+    @each $size in $sizeString {
+        @include  media-breakpoint-up1($size:$size){ 
+            @for $i from 1 through 12{
+                .col-#{$size}-#{$i}{
+                    width: 100% /12 *$i; 
+                }
+            }
+        }
+    }
+}
+
+.container{
+    padding: 0rem 2rem 2rem;
+}
+
+.code-container{
+    background: #8080802b;
+    margin: 0;
+    padding: 26px;
+}

@@ -1,0 +1,12 @@
+@import "src/style/variables";
+
+
+.app-bar{
+    min-height: 50px;
+    background: $lightBlue;
+    padding: 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+ 
