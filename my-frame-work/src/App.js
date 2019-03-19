@@ -29,8 +29,7 @@ class App extends Component {
     );
   }
   render() {
-    
-    console.log(process.env);
+     
     return (
       <div>
         <Route path="/" exact render={this.getInitialComponent} />

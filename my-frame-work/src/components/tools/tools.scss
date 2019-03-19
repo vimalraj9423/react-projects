@@ -52,3 +52,24 @@ $duration: .5s;
     &:after { top: -.625rem; }
   }
   
+  
+  /* list */
+  ul.list-items,ol.list-items {
+    
+      list-style-type: none;
+      &.a {
+        list-style-type: circle;
+      }
+      
+      &.b {
+        list-style-type: square;
+      }
+      
+      &.c {
+        list-style-type: upper-roman;
+      }
+      
+      &.d {
+        list-style-type: lower-alpha;
+      }
+  }
