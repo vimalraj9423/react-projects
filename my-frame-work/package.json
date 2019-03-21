@@ -13,17 +13,13 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "react-test-renderer": "^16.8.4"
   },
   "scripts": {
-    "build-css": "node-sass-chokidar  --include-path  src/   src/style/ -o src/",
-    "watch-css": "npm run build-css && node-sass-chokidar --include-path   src/   src/style/  -o src/ --watch --recursive",
-    "start-js": "react-scripts start",
-    "start": "npm-run-all -p watch-css start-js",
-    "build-js": "react-scripts build",
-    "server": "npm-run-all -p build node-serve",
-    "node-serve": "node ./server",
-    "build": "npm-run-all build-css build-js",
+    "start": "react-scripts start", 
+    "build": "react-scripts build", 
+    "node-serve": "node ./server", 
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

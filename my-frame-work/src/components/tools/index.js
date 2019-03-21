@@ -19,7 +19,7 @@ export function List(props) {
         upperRoman:"c",
         lowerAlpha:"d"
     }
-    if (!items.length) { 
+    if ( !items || !items.length) { 
       return <span className="empty-message">No items in list</span>;
     }
     let Element ="ul";
