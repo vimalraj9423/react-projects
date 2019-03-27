@@ -4,7 +4,7 @@ export function Menutools(props) {
    
         return (
             <a class="navicon-button x">
-                <div class="navicon"></div>
+                <div className="navicon"></div>
             </a>
 
         )
@@ -32,3 +32,18 @@ export function List(props) {
       </Element>
     );
   }
+
+  export class Link extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = { clicked: false };
+    }
+    handleClick = () => {
+      alert('clicked');
+      this.setState({ clicked: true });
+    }
+    render(){
+      const { title, url }=this.props;
+      return <a onClick={this.handleClick} href={url}>{title}</a>;
+    }
+  } 

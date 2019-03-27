@@ -1,0 +1,6 @@
+.tab-item{
+    padding: 5px 8px;
+    &.active{
+        border-bottom: 1px solid gray;
+    }
+}

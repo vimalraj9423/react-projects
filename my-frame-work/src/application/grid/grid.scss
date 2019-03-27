@@ -1,4 +1,4 @@
-@import "src/style/variables";
+@import "variables";
 .grid-definition{
     > [class*="col-"]{
         height:50px;
@@ -10,3 +10,52 @@
         border: 1px solid $white;
     }
 }
+
+%class1-extends{
+    color:red;
+}
+.class2-extends{
+    background: green;
+}
+.extend-main-class{
+    @extend %class1-extends;
+    @extend .class2-extends;
+}
+
+//example for include
+@mixin mainFunction(){
+    border:1px solid black;
+    @content;
+}
+
+.include-main{
+    @include mainFunction(){
+        .hello{
+            height: 10px;
+            font:{
+                size: 10px;
+            }
+        }
+    };
+}
+%incude-main1{
+    @include mainFunction;
+    width:10px;
+}
+
+.rooot{
+    @extend .include-main;
+}
+
+@mixin  hee{
+    color:orange;
+}
+
+.foo{
+    height: 10px;  
+}
+.foo1{
+    height: 10px;
+}
+
+

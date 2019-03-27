@@ -1,0 +1,13 @@
+
+.item-color{
+    @for $i from 1 through 10{
+        &:nth-child( #{$i} ){
+        @if($i%3==0){
+            background: red;
+        }@else {
+            background: if($i==4,black,blue);
+            color: white;
+        }
+        }
+    }
+}

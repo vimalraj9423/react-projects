@@ -1,6 +1,6 @@
 
 import React from "react";
-import "./grid.scss";
+import "./grid.scss"; 
 export default class GridPAge extends React.Component {
     render() {
         let typeOfgrid = [

@@ -1,5 +1,6 @@
 import React from "react";
-import { List } from "../../components/tools/index"
+import { List } from "../../components/tools/index";
+import CustomTab from "../../components/custom-tab"
 export default class LayoutDefinition extends React.Component {
     render() {
         const items = ['one', 'two', 'three'];
@@ -28,6 +29,16 @@ export default class LayoutDefinition extends React.Component {
                 <List items={items} listType={"lowerAlpha"} isOrder={true} />
                 <h4> UnOrderList with Circle</h4>
                 <List items={items} listType={"circle"}   />
+
+                <h4> list </h4>
+                <CustomTab active={0} vertical={true}>
+                    <div title="1">
+                        content 1
+                    </div>
+                    <div title="2">
+                        content 2
+                    </div>
+                    </CustomTab>
             </div>
         )
     }
