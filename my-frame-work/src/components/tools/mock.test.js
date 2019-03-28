@@ -17,7 +17,7 @@ it("how many called",()=>{
     }
   }
   
-  expect(myfunction).toHaveBeenCalledTimes(2)
+  expect(myfunction).toHaveBeenCalledTimes(2);
 
 })
 

@@ -11,7 +11,7 @@ export default class TabContainer extends React.Component {
             <div className="row">
                 <div className={this.props.vertical?"col-md-2":"col-md-12"}>
                     {
-                        this.props.children.map((el, index) => (<div key={index} className={"tab-item " + (index == this.props.active ? " active" : "")}>{this.props.renderer?this.props.renderer(el.props.title):el.props.title}</div>))
+                        this.props.children.map((el, index) => (<div key={index} onClick={()=>this.changeTab(index)} className={"tab-item " + (index == this.props.active ? " active" : "")}>{this.props.renderer?this.props.renderer(el.props.title):el.props.title}</div>))
                     }
                 </div>
                 <div className={this.props.vertical?"col-md-10":"col-md-12"}>

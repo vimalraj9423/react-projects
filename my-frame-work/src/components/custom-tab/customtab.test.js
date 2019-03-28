@@ -69,4 +69,24 @@ describe("general testing for custom tab", () => {
         expect(renderer).toHaveBeenCalledTimes(3)
 
     })
+    it("change active by clicking tab",()=>{
+        let renderer=jest.fn((text)=>text);
+        let wrapper = mount(<CustomTab active={1} renderer={renderer} >
+            <div title="title1">  content 1 </div>
+            <div title="title2">  content 2 </div>
+            <div title="title3">  content 3 </div>
+        </CustomTab>);
+        wrapper.setProps({
+            changeTab:(i)=>{
+                wrapper.setProps({
+                    active:i 
+                })
+            }
+        });
+        let selected=2;
+        wrapper.find('.row').childAt(0).childAt(selected).simulate("click");
+        expect(wrapper.find(".row").childAt(0).childAt(selected).hasClass('active') ).toBeTruthy()
+        expect(renderer).toHaveBeenCalledTimes(9)
+
+    })
 })
