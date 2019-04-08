@@ -1,1 +1,3 @@
-export let myfunction=()=>{};
+export let myfunction=()=>{
+    return 10;
+};

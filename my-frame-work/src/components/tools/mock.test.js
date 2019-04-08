@@ -13,9 +13,10 @@ it("how many called",()=>{
   for(let condition of callingCondition){
   
     if(condition=="call"){
-      Mockfile.myfunction();
+      expect(Mockfile.myfunction()).toBe(10)
     }
   }
+  
   
   expect(myfunction).toHaveBeenCalledTimes(2);
 

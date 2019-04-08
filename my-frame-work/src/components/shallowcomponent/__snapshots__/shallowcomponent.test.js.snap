@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`shallow component test 1`] = `
+<div>
+  <div
+    className="foo"
+  />
+  <div
+    className="foo"
+  >
+    <DummyComponent />
+  </div>
+</div>
+`;
+
+exports[`shallow component test 2`] = `
+<_default>
+  <div>
+    <div
+      className="foo"
+    />
+    <div
+      className="foo"
+    >
+      <DummyComponent>
+        <div>
+          dummy
+        </div>
+      </DummyComponent>
+    </div>
+  </div>
+</_default>
+`;

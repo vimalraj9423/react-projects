@@ -1,15 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
-<a
-  class="navicon-button x"
->
-  <div
-    class="navicon"
-  />
-</a>
-`;
-
 exports[`renders correctly for List with props list 1`] = `
 <ul
   className="list-items undefined "
@@ -27,6 +17,25 @@ exports[`renders correctly for List with props list 1`] = `
 </ul>
 `;
 
+exports[`renders correctly for List with props list with enzyme 1`] = `
+<ul
+  className="list-items undefined "
+>
+  <li
+    className="item"
+    key="item1"
+  >
+    item1
+  </li>
+  <li
+    className="item"
+    key="item2"
+  >
+    item2
+  </li>
+</ul>
+`;
+
 exports[`renders correctly for List without props data 1`] = `
 <span
   className="empty-message"
@@ -35,29 +44,12 @@ exports[`renders correctly for List without props data 1`] = `
 </span>
 `;
 
-exports[`renders correctly for List without props data 2`] = `
-<ul
-  className="list-items undefined "
->
-  <li
-    className="item"
-  >
-    item1
-  </li>
-  <li
-    className="item"
-  >
-    item2
-  </li>
-</ul>
-`;
-
 exports[`renders correctly for menutools 1`] = `
 <a
   class="navicon-button x"
 >
   <div
-    class="navicon"
+    className="navicon"
   />
 </a>
 `;
