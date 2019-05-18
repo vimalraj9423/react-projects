@@ -1,3 +1,4 @@
+@import "bootstrap/scss/bootstrap.scss";
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -10,4 +11,10 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+ 
+@for $var from 1 to 10 {
+  .pl-#{$var*5}{
+    padding-left: $var*5px
+  }
 }

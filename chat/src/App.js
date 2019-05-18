@@ -1,26 +1,51 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
-function App() {
+import Auth from "./component/auth";
+import {UserContext} from "./data-provider/user";
+import {withRouter,Switch,Route} from "react-router-dom";
+import {getUserById} from "./services/auth";
+import Chat from "./component/chat/chat"
+class  App extends React.Component {
+  static contextType=UserContext;
+  constructor(){
+    super();
+    this.state={
+      loading:true
+    }
+  }
+  componentDidMount(){
+    let userId=sessionStorage.getItem("user_id"); 
+    console.log(userId)
+    if(userId){
+    getUserById(userId).then(result=>{
+      this.setState({
+        loading:false
+      },()=>{this.context.storeUser(result.data)})
+    })
+  }else{
+    this.setState({
+      loading:false
+    });
+  }
+    
+  }
+  render(){
+  console.log(this.context)
+  if(this.state.loading){
+    return (<div className="App">
+      ...loading
+    </div>)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div className="App"> 
+        { !this.context.auth?<Auth/>:<Chat/>}
+   
+      
     </div>
   );
 }
+}
 
-export default App;
+export default withRouter(App);
