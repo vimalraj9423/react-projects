@@ -1,7 +1,7 @@
 import React from "react";
 import "./tools.scss"
 export function Menutools(props) {
-   
+   console.log("menu tools")
         return (
             <a class="navicon-button x">
                 <div className="navicon"></div>

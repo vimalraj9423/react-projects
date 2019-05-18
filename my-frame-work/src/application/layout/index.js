@@ -2,6 +2,8 @@ import React from "react";
 import { List } from "../../components/tools/index";
 import CustomTab from "../../components/custom-tab"
 export default class LayoutDefinition extends React.Component {
+    state={active:0}
+    changeActive=(active)=>this.setState({active})
     render() {
         const items = ['one', 'two', 'three'];
         return (
@@ -31,7 +33,7 @@ export default class LayoutDefinition extends React.Component {
                 <List items={items} listType={"circle"}   />
 
                 <h4> list </h4>
-                <CustomTab active={0} vertical={true}>
+                <CustomTab changeTab={this.changeActive} active={this.state.active} vertical={false}>
                     <div title="1">
                         content 1
                     </div>

@@ -24,7 +24,9 @@ exports[`shallow component test 2`] = `
     >
       <DummyComponent>
         <div>
-          dummy
+          <div
+            className="state-class"
+          />
         </div>
       </DummyComponent>
     </div>

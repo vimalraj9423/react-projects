@@ -1,11 +1,20 @@
 import React from "react";
 import "./customtab.scss";
 export default class TabContainer extends React.Component {
-    changeTab=(i)=>{
+    constructor(){
+        super();
+        this.state={}
+        this.changeTab = this.changeTab.bind(this);
+    }
+    changeTab(i){
         if(this.props.changeTab && this.props.active!=i){
             this.props.changeTab(i);
         }
     }
+    componentWillUnmount(){
+        
+    }
+    componentDidMount(){}
     render() { 
         return (<div>
             <div className="row">

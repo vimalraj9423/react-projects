@@ -3,6 +3,7 @@ import { configure, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import React from "react";
 import CustomTab from "./index";
+import sinon from "sinon";
 configure({ adapter: new Adapter() });
 describe("general testing for custom tab", () => {
     it("check all the tab list rendered", () => {
@@ -57,10 +58,10 @@ describe("general testing for custom tab", () => {
             <div title="title2">  content 2 </div>
             <div title="title3">  content 3 </div>
         </CustomTab>);
-        expect(wrapper.find(".row").childAt(0).childAt(1).hasClass('active') ).toBeTruthy()
+        expect(wrapper.find(".row").childAt(0).childAt(1).hasClass('active')).toBeTruthy()
     })
-    it("check renderer function is called ",()=>{
-        let renderer=jest.fn((text)=>text);
+    it("check renderer function is called ", () => {
+        let renderer = jest.fn((text) => text);
         let wrapper = mount(<CustomTab active={1} renderer={renderer}>
             <div title="title1">  content 1 </div>
             <div title="title2">  content 2 </div>
@@ -69,24 +70,31 @@ describe("general testing for custom tab", () => {
         expect(renderer).toHaveBeenCalledTimes(3)
 
     })
-    it("change active by clicking tab",()=>{
-        let renderer=jest.fn((text)=>text);
+    it("change active by clicking tab", () => {
+        let renderer = jest.fn((text) => text);
         let wrapper = mount(<CustomTab active={1} renderer={renderer} >
             <div title="title1">  content 1 </div>
             <div title="title2">  content 2 </div>
             <div title="title3">  content 3 </div>
         </CustomTab>);
+        console.log(wrapper.instance())
+        // let spy = jest.spyOn(CustomTab.instance(), 'changeTab')
+        let spy =  sinon.spy(wrapper.instance(), 'changeTab');
         wrapper.setProps({
-            changeTab:(i)=>{
+            changeTab: (i) => {
                 wrapper.setProps({
-                    active:i 
+                    active: i
                 })
             }
         });
-        let selected=2;
+        let selected = 2;
         wrapper.find('.row').childAt(0).childAt(selected).simulate("click");
-        expect(wrapper.find(".row").childAt(0).childAt(selected).hasClass('active') ).toBeTruthy()
-        expect(renderer).toHaveBeenCalledTimes(9)
+        wrapper.find('.row').childAt(0).childAt(selected).simulate("click");
+        expect(wrapper.find(".row").childAt(0).childAt(selected).hasClass('active')).toBeTruthy()
+        expect(renderer).toHaveBeenCalledTimes(9);
+        wrapper.unmount();
+        expect(spy.callCount).toEqual(2);
+
 
     })
 })

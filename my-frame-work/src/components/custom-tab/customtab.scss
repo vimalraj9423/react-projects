@@ -1,5 +1,6 @@
 .tab-item{
     padding: 5px 8px;
+    display: inline-block;
     &.active{
         border-bottom: 1px solid gray;
     }

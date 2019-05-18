@@ -5,11 +5,20 @@ import Grid from  "./grid";
 import Layout from "./layout";
 import "./main.scss"
 import {  Route,Switch,withRouter,Router,Link } from 'react-router-dom';
+ 
 class Main extends React.Component {
+    state={count:3}
+    changeState=()=>{
+        this.setState({count:100})
+    }
     getlink=()=>{
         return(
            
-            <div className="container">
+            <div className="container">dfd
+            <button onClick={this.changeState}>df</button>
+            {
+                this.state.count
+            }
                 {
                     [0,1,2,3,4,5,6].map((value,index)=>
                        ( <React.Fragment><span className="item-color" key={index}>{value}</span></React.Fragment>)
@@ -23,6 +32,7 @@ class Main extends React.Component {
         )
     }
     render() {
+        console.log("render main")
         console.log(this.props)
         const {match} =this.props;
         return (

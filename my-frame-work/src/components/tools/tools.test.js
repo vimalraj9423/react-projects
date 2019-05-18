@@ -13,19 +13,19 @@ configure({ adapter: new Adapter() });
         // expect(wrapper.find('.item')).toHaveLength(items.length); 
     });
     test('List checking ', () => {
-        // const items = ['one', 'two', 'three'];
-        // let listTypeMap={
-        //     circle:"a",
-        //     square:"b",
-        //     upperRoman:"c",
-        //     lowerAlpha:"d"
-        // }
-        // let listType=["circle","square","upperRoman","lowerAlpha"];
+        const items = ['one', 'two', 'three'];
+        let listTypeMap={
+            circle:"a",
+            square:"b",
+            upperRoman:"c",
+            lowerAlpha:"d"
+        }
+        let listType=["circle","square","upperRoman","lowerAlpha"];
          
-        //     let wrapper = shallow(<List items={items} listType={"circle"} />);
-        //     console.log(wrapper.find('.list-ithems '+listTypeMap["circle"]))
-        //             // Expect the wrapper object to be defined
-        //             expect(wrapper.find('.list-ithems'+listTypeMap["circle"])).toBeDefined();
-        //             // expect(wrapper.find('.item')).toHaveLength(items.length);
+            let wrapper = shallow(<List items={items} listType={"circle"} />);
+            
+                    // Expect the wrapper object to be defined
+                    expect(wrapper.find('.list-items.'+listTypeMap["circle"]).exists()).toEqual(true);
+                    expect(wrapper.find('.item')).toHaveLength(items.length);
       
     }); 

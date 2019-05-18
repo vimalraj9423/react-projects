@@ -1,5 +1,6 @@
 import React from "react";
-let DummyComponent=()=>(<div>dummy</div>)
+export let DummyComponent=()=>(<div>
+    <div className="state-class"></div></div>)
 
 export default () => {
     return (
@@ -21,6 +22,8 @@ export class StateFull extends React.Component{
         }
     }
     render(){
-        return(<div></div>)
+        return(<div>
+            <div className="state-class"></div>
+        </div>)
     }
 }

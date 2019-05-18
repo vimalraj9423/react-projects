@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.scss';
 import { withRouter, Route } from 'react-router-dom';
 import Main from "./application/main"
+import ChatApp from "./chatapp/index";
+import { hot } from 'react-hot-loader'
 class App extends Component {
   state = {
     showMainPage: false
@@ -29,14 +31,18 @@ class App extends Component {
     );
   }
   render() {
-     
+     console.log(this.props)
+     if(window.location.hostname.split(".").length==1 || window.location.hostname.split(".")[0].toLowerCase()!="app")
     return (
       <div>
         <Route path="/" exact render={this.getInitialComponent} />
         <Route path="/app"  component={Main} />
       </div>
     )
+    else{
+      return <div><ChatApp/></div>
+    }
   }
 }
 
-export default withRouter(App);
+export default hot(module)( withRouter(App)); 
