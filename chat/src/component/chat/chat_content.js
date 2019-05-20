@@ -29,7 +29,7 @@ export default class chatContent extends React.Component {
                             this.context.userMessages[this.context.selectedUser._id]
                             &&
                             this.context.userMessages[this.context.selectedUser._id].map((message, key) => (
-                                    <Card  key={key} className={"message-card mb-2 "+(message.fromId==this.context.selectedUser._id?" left":" float-right")}>
+                                    <Card  key={key} className={"message-card "+(message.fromId==this.context.selectedUser._id?" left":" float-right")}>
     
                                             {message.message} 
                                     </Card> 
