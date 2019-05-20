@@ -1,6 +1,11 @@
 .message_container{
     height: calc(100vh - 70px);
     background:#cbd0d8;
+    overflow-y: auto;
+    .message-card{
+        width: 60%;
+        
+    }
 }
 .message_input{
     height: 60px;
