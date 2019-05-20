@@ -1,8 +1,47 @@
 .login-container{
- margin: 0 auto;
-}
-.login-container{
+    margin: 0 0 0 115px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 10px 7px 20px 2px #474747, 0 0 20px 5px #7e55bb;
+    border-radius: 15px;
+    background-image: linear-gradient(to right, #cdcdcd, #d9d9d9, #e6e6e6, #f2f2f2, #ffffff);
+
+    .form-container{
+        padding: 43px 20px 67px;
+        font-family: 'Montserrat', sans-serif; // needs internet
+        font-weight: 600;
+        color: #555555;
+    }
+    .login-btn{
+        float: right;
+        position: relative;
+    }
+    .link{
+        position: absolute;
+        right: 130px;
+        bottom: 41px;
+        font-size: 10pt;
+        text-decoration: underline;
+    }
+    
     .form-label{
         text-align: left
+    }
+}
+
+.aside-container{
+    text-align: -webkit-left;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    position: absolute;
+    top: 50%;
+    margin-right: 20px;
+    transform: translateY(-50%);
+    border-left: 1px solid #fff;
+
+    .content{
+        word-break: break-word;
+         margin-top: 40px;
     }
 }

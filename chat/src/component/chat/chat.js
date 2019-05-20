@@ -8,12 +8,12 @@ export default class chat extends React.Component {
     render() {
         return (
             <div>
-                <Container fluid={true}>
-                    <Row>
-                        <Col sm={"4"}>
+                <Container fluid={true} className='p-0'>
+                    <Row className='no-gutters'>
+                        <Col sm={6} xs={6} md={3} lg={3} xl={3}>
                             <ChatList />
                         </Col>
-                        <Col sm={8}>
+                        <Col sm={6} xs={6} md={9} lg={9} xl={9}>
                             <ChatContent />
                         </Col>
                     </Row>

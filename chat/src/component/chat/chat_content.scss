@@ -1,9 +1,33 @@
 .message_container{
-    height: calc(100vh - 70px);
-    background:#cbd0d8;
+    height: calc(100vh - 64px);
+    background:#000000a8;
+    padding: 35px;
     overflow-y: auto;
     .message-card{
         width: 60%;
+        color:white;
+        font-weight: 700;
+        padding: 8px 5px;
+        font-size: 10pt;
+        border-right: 0px;
+    border-left: 0px;
+        &.left{
+            background-image: linear-gradient(to right, #c93939, #ca506e, #bd6d96, #ab88ab, #a39dae);
+            text-align: left;
+            padding-left: 25px;
+            border-bottom-right-radius: 20px;
+            border-top-right-radius: 20px;
+            border-bottom-left-radius: 40px;
+
+        }
+        &.float-right{
+            text-align: right;
+            background-image: linear-gradient(to left, #6d50ac, #7c63ad, #8976ae, #968aae, #a39dae);
+            padding-right: 25px;
+            border-bottom-left-radius: 20px;
+            border-top-left-radius: 20px;
+            border-bottom-right-radius: 40px;
+        }
         
     }
 }

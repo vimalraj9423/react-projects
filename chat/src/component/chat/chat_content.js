@@ -21,8 +21,7 @@ export default class chatContent extends React.Component {
     render() {
         console.log(this.context.selectedUser)
         return (
-            <div className="">
-                <Container>
+                <Container fluid={true} className='p-0'>
                     <div className="message_container">
                         {
                             this.context.selectedUser
@@ -52,7 +51,6 @@ export default class chatContent extends React.Component {
                             </InputGroup.Append>
                         </InputGroup>}
                 </Container>
-            </div>
         )
     }
 }

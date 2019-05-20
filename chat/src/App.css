@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   min-height: 100vh;
-  background-color: #f3e6b7;
+  background-image: linear-gradient(to right bottom, #c93939, #c92d53, #c12b6d, #b13485, #994099, #873d8d, #753a81, #653674, #542750, #3d1b31, #23121a, #000000);
 }
 
 .App-logo {
