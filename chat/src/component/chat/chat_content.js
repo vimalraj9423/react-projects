@@ -14,7 +14,9 @@ export default class chatContent extends React.Component {
                 toId: this.context.selectedUser._id 
             },(result)=>{
                 console.log(this.context);
-                this.context.sendCallBack(result)
+                this.context.sendCallBack(result,()=>{
+                    this.sendMessageRef.scrollTop= this.sendMessageRef.scrollHeight;
+                })
            });
         }
     }
@@ -22,7 +24,7 @@ export default class chatContent extends React.Component {
         console.log(this.context.selectedUser)
         return (
                 <Container fluid={true} className='p-0'>
-                    <div className="message_container">
+                    <div className="message_container" ref={el=>this.sendMessageRef=el} >
                         {
                             this.context.selectedUser
                             &&
@@ -30,7 +32,7 @@ export default class chatContent extends React.Component {
                             &&
                             this.context.userMessages[this.context.selectedUser._id].map((message, key) => (
                                     <Card  key={key} className={"message-card "+(message.fromId==this.context.selectedUser._id?" left":" float-right")}>
-    
+{message.fromId==this.context.selectedUser._id &&      <div className="user-icon-content ">V </div>}
                                             {message.message} 
                                     </Card> 
                             ))

@@ -14,7 +14,9 @@ class Login extends React.Component {
             console.log(Response)
         })
     }
-    login = () => {
+    login = (e) => { 
+        e.preventDefault();
+        e.stopPropagation();
         let userName = this.userName.value;
         let password = this.password.value;
 
@@ -31,25 +33,25 @@ class Login extends React.Component {
                     <Row>
                         <Col sm={12} md={4} lg={4} xl={4} xs={12} className="login-container card">
                             <Container>
-                                <Form className='form-container' >
+                                <form className='form-container' onSubmit={this.login} >
                                     <Form.Group as={Row}>
                                         <Form.Label column sm={4}>User Name</Form.Label>
                                         <Col sm={8}>
-                                            <Form.Control ref={el => this.userName = el} column sm={10} type="text" placeholder="Please type User name" />
+                                            <Form.Control ref={el => this.userName = el} column sm={10} id="username" type="text" placeholder="Please type User name" />
                                         </Col>
                                     </Form.Group>
                                     <Form.Group as={Row}>
                                         <Form.Label column sm={4}>Password</Form.Label>
                                         <Col sm={8}>
-                                            <Form.Control ref={el => this.password = el} column sm={10} type="text" placeholder="Please type Password" />
+                                            <Form.Control ref={el => this.password = el} column sm={10} id="password" type="password" placeholder="Please type Password" />
                                         </Col>
                                     </Form.Group>
                                     <Form.Group >
-                                        <Button onClick={this.login} className='login-btn'>login</Button>
+                                        <Button onClick={this.login} type="submit" className='login-btn'>login</Button>
                                         <Link className="pl-10 link" to={"/signup"}>sign up</Link>
                                     </Form.Group>
 
-                                </Form>  </Container>
+                                </form>  </Container>
                         </Col>
                         <Col sm={12} md={6} lg={6} xl={6} xs={12} className='offset-lg-6 offset-xl-6 offset-md-6 offset-sm-0 aside-container'>
                             <h1>TINDER 2.0 APPLICATION</h1>

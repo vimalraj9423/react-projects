@@ -1,21 +1,41 @@
 .chat_list{
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.45);
+    height: calc(100vh - 56px);
+    background:rgba(28, 84, 2, 0.53);
     overflow-y:auto;
+    padding: 3px 5px;
 }
 .userlist_group{
-    background: #cac9c5;
+    background: #e0dada;
     font-size: 15pt;
     text-transform: capitalize;
-    text-align: left;
-    padding-left: 30px;
-    color: #3e3e3e;
-    border-radius: 5px;
-
+    text-align: left; 
+    color: #3e3e3e; 
+    border: 5px solid transparent;
+    border-top: 1.5px;
+    border-bottom: 1.5px;
+    margin-bottom: 2.5px;
+    cursor: pointer;
     &:hover,&.active{
-        background: #a5a5a5;
-        color: white;
-        border: 2px solid #00000054;
+        background: #3b313d;
+        color: white; 
+        border-color:  #b59f9f;
+    
+    }
+
+    .user-name{
+        width: calc( 100% - 52px);
+        display: inline-block;
+        padding-left: 10px;
     }
 }
 
+.user-icon{
+    background: white;
+    color: #c9404f;
+    display: inline-block;
+    border-radius: 28px;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+}

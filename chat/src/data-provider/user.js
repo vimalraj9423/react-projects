@@ -62,7 +62,7 @@ class UserContextClass extends React.Component {
             user:{userName, phoneNo, gender,id:_id}, auth: true,
         },this.getUserList);
     }
-    sendCallBack=(data)=>{
+    sendCallBack=(data,callback)=>{
         this.setState({
 
             userMessages: {
@@ -70,7 +70,7 @@ class UserContextClass extends React.Component {
                 [data.toId]:!this.state.userMessages[data.toId]?
                 [data]:[...this.state.userMessages[data.toId],data]
             }
-        })
+        },callback)
     }
     render() {
         return (
