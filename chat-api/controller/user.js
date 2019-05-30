@@ -6,13 +6,14 @@ let userSockets = {};
 router.post("/createUser", (req, res) => {
     // console.log(req.body)//
     let user = new userSchema(req.body);
-    user.save((err) => {
+    user.save((err,result) => {
         if (err) {
             res.send({
                 message: "errrs"
             })
         } else {
             res.send({
+                data:result,
                 message: "succeful"
             })
         }
