@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'mdbreact/dist/css/mdb.css';
 import App from './App';
 import MyProvide from "./data-provider/provider";
 import * as serviceWorker from './serviceWorker';
