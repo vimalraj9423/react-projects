@@ -45,6 +45,9 @@ export default class VideoChat extends React.Component {
                 this.videoRef.srcObject=  stream;
                 this.videoRef.play();
             })
+
+            this.peer.on('close', () => {this.props.onCancel()})
+
             SocketIO.socket.on("receiveSocketIdFromInitiator", (data) => {
                 this.peer.signal(data);
             })
@@ -64,6 +67,11 @@ export default class VideoChat extends React.Component {
     }
     sendData = () => {
 
+    }
+    onCancel=()=>{
+        stream.getTracks().forEach(track => track.stop())
+        this.props.onCancel();
+        // this.peer.on('close', () => {this.props.onCancel})
     }
     render() {
 

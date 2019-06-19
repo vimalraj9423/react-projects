@@ -56,10 +56,7 @@ class Login extends React.Component {
                         <Col sm={12} md={6} lg={6} xl={6} xs={12} className='offset-lg-6 offset-xl-6 offset-md-6 offset-sm-0 aside-container'>
                             <h1>TINDER 2.0 APPLICATION</h1>
                             <p className="content">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Maecenas accumsan lacus vel facilisis volutpat est velit egestas dui. Quam id leo in vitae turpis massa sed elementum tempus.
-<br /><br />Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Maecenas accumsan lacus vel facilisis volutpat est velit egestas dui. Quam id leo in vitae turpis massa sed elementum tempus.
-<br /><br />Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Maecenas accumsan lacus vel facilisis volutpat est velit egestas dui. Quam id leo in vitae turpis massa sed elementum tempus.
-</p>
+   </p>
                         </Col>
                     </Row>
                 </Container>

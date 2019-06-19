@@ -32,6 +32,11 @@ export default class chat extends React.Component {
         })
 
     }
+    closeCall=()=>{
+        this.setState({
+            showVideo:false 
+        })
+    }
     render() {
         return (
             <div>
@@ -47,7 +52,7 @@ export default class chat extends React.Component {
                             <ChatContent videoCall={this.videoCall} />
                         </Col>
                     </Row>
-                   {this.state.showVideo && <VideoChat initiatorSocketId={this.state.initiatorSocketId} toID={this.state.toID} initiatorId={this.state.initiatorId} initiator={this.state.initiator}/>}
+                   {this.state.showVideo && <VideoChat onCancel={this.closeCall} initiatorSocketId={this.state.initiatorSocketId} toID={this.state.toID} initiatorId={this.state.initiatorId} initiator={this.state.initiator}/>}
                 </Container>
             </div>
         );
