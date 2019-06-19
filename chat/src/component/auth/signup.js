@@ -7,6 +7,7 @@ import { UserContext } from "../../data-provider/user";
 class SignUp extends React.Component{
     static contextType=UserContext;
     createUser=()=>{
+        debugger;
         createUser(
             this.userName.value,
             this.phoneNumber.value,
