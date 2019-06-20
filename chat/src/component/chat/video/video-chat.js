@@ -12,7 +12,7 @@ export default class VideoChat extends React.Component {
     }
     componentDidMount() {
         console.log(this.props.initiator)
-        let gotMedia=(stream) => {
+        let gotMedia=(stream) => { 
             this.peer = new Peer({
                 initiator: this.props.initiator,
                 trickle: false,
@@ -41,16 +41,14 @@ export default class VideoChat extends React.Component {
                 // got a data channel message
                 console.log('got a message from ' + (this.props.initiator ? "initi" : "none") + ' + data')
             })
-            this.peer.on("stream",(stream)=>{
+            this.peer.on("stream",(stream)=>{  
                 this.videoRef.srcObject=  stream;
                 this.videoRef.play();
             })
 
-            this.peer.on('close', () => {this.props.onCancel()})
+            this.peer.on('close', () => { console.log("close connection");  this.onCancel()})
 
-            SocketIO.socket.on("receiveSocketIdFromInitiator", (data) => {
-                this.peer.signal(data);
-            })
+            SocketIO.socket.on("receiveSocketIdFromInitiator", this.receiveSocketIdFromInitiator)
 
         }
         navigator.getUserMedia = ( 
@@ -65,11 +63,35 @@ export default class VideoChat extends React.Component {
 
 
     }
+    receiveSocketIdFromInitiator=(data)=>{
+        console.log("receiver");;
+        this.peer.signal(data);
+    }
+    componentWillUnmount(){
+        SocketIO.socket.removeListener("receiveSocketIdFromInitiator",this.receiveSocketIdFromInitiator)
+    }
     sendData = () => {
 
     }
     onCancel=()=>{
-        stream.getTracks().forEach(track => track.stop())
+        var MediaStream = window.MediaStream;
+
+        if (typeof MediaStream === 'undefined' && typeof window.webkitMediaStream !== 'undefined') {
+            MediaStream = window.webkitMediaStream;
+        }
+        
+        /*global MediaStream:true */
+        // if (typeof MediaStream !== 'undefined' && !('stop' in MediaStream.prototype)) {
+        //     MediaStream.prototype.stop = function() {
+        //         this.getTracks().forEach(function(track) {
+        //             track.stop();
+        //         });
+        //     };
+        // } 
+        this.peer.removeAllListeners() 
+        this.peer.destroy(); 
+        this.peer=null;
+         console.log(" this.stream.stop()")
         this.props.onCancel();
         // this.peer.on('close', () => {this.props.onCancel})
     }
@@ -81,7 +103,7 @@ export default class VideoChat extends React.Component {
             }
             <video ref={el => this.videoRef = el} />
             <button onClick={this.sendData}> send</button>
-            <button onClick={this.props.onCancel}>cancel</button>
+            <button onClick={this.onCancel}>cancel</button>
         </div>
     }
 }

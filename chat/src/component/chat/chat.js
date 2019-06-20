@@ -34,7 +34,8 @@ export default class chat extends React.Component {
     }
     closeCall=()=>{
         this.setState({
-            showVideo:false 
+            showVideo:false ,
+            initiator:false
         })
     }
     render() {
