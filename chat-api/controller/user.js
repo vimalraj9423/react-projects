@@ -2,6 +2,7 @@ import express from "express";
 let router = express.Router();
 import userSchema from "../model/user";
 import MessageSchema from "../model/messages";
+// import {getLastSeen} from "../methods/messages"
 let userSockets = {};
 router.post("/createUser", (req, res) => {
     // console.log(req.body)//

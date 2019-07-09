@@ -1,4 +1,4 @@
-import {sendMessage} from "./messages";
+import {sendMessage,updateLastSeen} from "./messages";
 export default class SocketServer {
     constructor(io) {
         this.io = io;
@@ -43,7 +43,7 @@ export default class SocketServer {
                 console.log("toId",toId)
                 socket.broadcast.to(toId+"_room").emit("receiveInitiatorId",JSON.stringify(id),socket.id)
             })
-
+            socket.on("updateLastSeen",updateLastSeen)
 
         });
 

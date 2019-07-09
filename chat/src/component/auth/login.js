@@ -9,10 +9,7 @@ import { UserContext } from "../../data-provider/user";
 
 class Login extends React.Component {
     static contextType = UserContext;
-    componentDidMount() {
-        getUserList().then(Response => {
-            console.log(Response)
-        })
+    componentDidMount() { 
     }
     login = (e) => { 
         e.preventDefault();

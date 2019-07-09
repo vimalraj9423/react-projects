@@ -15,6 +15,13 @@ export default class ChatUserList extends React.Component{
                     </div>
                     <div className="user-name">
                     {user.userName}
+                    { this.context.lastSeens[  user._id]!=0&& this.context.lastSeens[  user._id]  && (!this.context.selectedUser || this.context.selectedUser._id!= user._id)
+                    &&<span className="lastSeen-count">
+                        
+                    {
+                      this.context.lastSeens[  user._id]
+                    }
+                    </span>}
                     </div>
                        
                     </ListGroupItem>)
