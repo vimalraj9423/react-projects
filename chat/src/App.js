@@ -5,7 +5,7 @@ import Auth from "./component/auth";
 import {UserContext} from "./data-provider/user";
 import {withRouter,Switch,Route} from "react-router-dom";
 import {getUserById} from "./services/auth";
-import Chat from "./component/chat/chat"
+import ChatIndex from "./component/chat"
 class  App extends React.Component {
   static contextType=UserContext;
   constructor(){
@@ -40,7 +40,7 @@ class  App extends React.Component {
   return (
 
     <div className="App"> 
-        { !this.context.auth?<Auth/>:<Chat/>}
+        { !this.context.auth?<Auth/>:<ChatIndex/>}
    
       
     </div>

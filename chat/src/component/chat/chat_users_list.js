@@ -9,7 +9,7 @@ export default class ChatUserList extends React.Component{
         return (<div className="chat_list">
             <ListGroup>
                 {
-                    this.context.userList.map(user=>this.context.user.id!=user._id&&<ListGroupItem className={"userlist_group "+(user==this.context.selectedUser?" active":"")} onClick={()=>this.context.selectUserToChat(user)}>
+                    this.context.userList.map((user,index)=>this.context.user.id!=user._id&&<ListGroupItem key={index} className={"userlist_group "+(user==this.context.selectedUser?" active":"")} onClick={()=>this.context.selectUserToChat(user)}>
                     <div className="user-icon">
                         {user.userName[0]}
                     </div>

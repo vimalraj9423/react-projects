@@ -1,3 +1,9 @@
 nav{
     background: #61acd454;
 }
+.logout-menu{
+    .dropdown-menu{
+        right: 0 !important;
+        left: auto !important;
+    }
+}

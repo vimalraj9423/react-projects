@@ -15,6 +15,7 @@ class UserContextClass extends React.Component {
             selectUserToChat:this.selectUserToChat,
             sendCallBack:this.sendCallBack,
             userMessages:{},
+            logout:this.logout,
             lastSeens:{}
 
         }
@@ -97,6 +98,10 @@ class UserContextClass extends React.Component {
                 [data]:[...this.state.userMessages[data.toId],data]
             }
         },callback)
+    }
+    logout=()=>{
+        sessionStorage.removeItem("user_id" );
+        this.setState({auth:false})
     }
     render() {
         return (

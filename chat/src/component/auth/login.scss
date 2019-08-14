@@ -8,7 +8,7 @@
     background-image: linear-gradient(to right, #cdcdcd, #d9d9d9, #e6e6e6, #f2f2f2, #ffffff);
 
     .form-container{
-        padding: 43px 20px 67px;
+        padding: 43px 20px 0px;
         font-family: 'Montserrat', sans-serif; // needs internet
         font-weight: 600;
         color: #555555;
@@ -17,10 +17,9 @@
         float: right;
         position: relative;
     }
-    .link{
-        position: absolute;
-        right: 130px;
-        bottom: 41px;
+    .link{ 
+        margin: 8px;
+        float: right;
         font-size: 10pt;
         text-decoration: underline;
     }

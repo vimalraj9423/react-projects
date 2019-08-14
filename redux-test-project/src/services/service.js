@@ -5,8 +5,7 @@ export let get=(path)=>new Promise((resolve,reject)=>{
     }).catch(err=>{
         reject({
             status:err.status,
-            data:err.data,
-            message:err.message
+            data:err.data
         })
     });
 })  
@@ -23,10 +22,8 @@ export let post=(path,param)=>new Promise((resolve,reject)=>{
         }
     }).catch(err=>{
         reject({
-            err:err,
             status:err.status,
-            data:err.data,
-            message:err.message
+            data:err.data
         })
     });
 })

@@ -9,6 +9,7 @@ import { UserContext } from "../../data-provider/user";
 
 class Login extends React.Component {
     static contextType = UserContext;
+    state={};
     componentDidMount() { 
     }
     login = (e) => { 
@@ -20,6 +21,12 @@ class Login extends React.Component {
         login(userName, password).then(result => {
             console.log(result)
             this.context.storeUser(result.data);
+        }).catch(err=>{
+            console.log(err)
+            this.setState({
+                error:true,
+                errorMessage:err.message
+            })
         })
     }
     render() {
@@ -43,19 +50,24 @@ class Login extends React.Component {
                                             <Form.Control ref={el => this.password = el} column sm={10} id="password" type="password" placeholder="Please type Password" />
                                         </Col>
                                     </Form.Group>
-                                    <Form.Group >
+                                    <Row >
+                                        <Col>
                                         <Button onClick={this.login} type="submit" className='login-btn'>login</Button>
                                         <Link className="pl-10 link" to={"/signup"}>sign up</Link>
-                                    </Form.Group>
+                                        </Col>
+                                    </Row>
+                        {this.state.error &&
+                        <Col className="text-danger">{this.state.errorMessage}</Col>}
 
                                 </form>  </Container>
                         </Col>
                         <Col sm={12} md={6} lg={6} xl={6} xs={12} className='offset-lg-6 offset-xl-6 offset-md-6 offset-sm-0 aside-container'>
-                            <h1>TINDER 2.0 APPLICATION</h1>
+                            <h1>Connect</h1>
                             <p className="content">
    </p>
                         </Col>
-                    </Row>
+
+                    </Row> 
                 </Container>
             </div>
         )
