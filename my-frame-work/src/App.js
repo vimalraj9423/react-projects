@@ -4,7 +4,7 @@ import './App.scss';
 import { withRouter, Route } from 'react-router-dom';
 import Main from "./application/main"
 import ChatApp from "./chatapp/index";
-import { hot } from 'react-hot-loader'
+// import { hot } from 'react-hot-loader'
 class App extends Component {
   state = {
     showMainPage: false
@@ -45,4 +45,4 @@ class App extends Component {
   }
 }
 
-export default hot(module)( withRouter(App)); 
+export default   withRouter(App); 
